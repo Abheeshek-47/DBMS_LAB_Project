@@ -1,9 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { User } from './db.js'; // Assuming this is an ORM model (e.g., Sequelize, Mongoose).
+import cors from 'cors';
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors({
+  origin: 'https://www.unitycircle.online',  // Frontend URL
+  methods: ['GET', 'POST'],
+  credentials: true,  // If needed for cookies or headers
+}));
 
 app.get("/", (req, res) => {
   res.json({
