@@ -24,14 +24,25 @@ mongoose.connect("mongodb+srv://abheeshek47code:prWa9EpVYKRFVaoW@cluster0.ai6su.
 //     }]
 // })
 const UserSchema= new mongoose.Schema({
-    submittedby:String,
+    projectTitle:String,
+    projectdescription:String,
+    Submission_Date: Date,
     Groupname:[{
+        
         username:String,
-        batch:Number,
         sap:Number
     }],
     createdate:Date
 })
+// const UserSchema= new mongoose.Schema({
+//     submittedby:String,
+//     Groupname:[{
+//         username:String,
+//         batch:Number,
+//         sap:Number
+//     }],
+//     createdate:Date
+// })
 
 // const CourseSchema = new mongoose.Schema({
 //     // Body: { 
