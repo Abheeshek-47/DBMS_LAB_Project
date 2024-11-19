@@ -4,7 +4,7 @@ import { User } from "./db.js"; // Assuming this is an ORM model (e.g., Sequeliz
 
 const app = express();
 app.use(bodyParser.json());
-app.use("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.json({
         msg:"Deployed online Successfully"
     })
