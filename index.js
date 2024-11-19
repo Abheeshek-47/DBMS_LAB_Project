@@ -10,19 +10,28 @@ app.get("/",(req,res)=>{
     })
 })
 app.post("/addnew", async (req, res) => {
-    const { submittedby, Groupname } = req.body;
+    // const { submittedby, Groupname } = req.body;
 
+    const submittedby=req.body.submittedby;
+    const Groupname=req.body.Groupname;
     // Input validation
     if (!submittedby || !Array.isArray(Groupname)) {
         return res.status(400).json({ msg: "Invalid input data" });
     }
 
     try {
-        const newuser = await User.create({
-            submittedby,
-            Groupname,
-            createdate: Date.now(),
+
+        const newuser= await User.create({
+            submittedby:submittedby,
+            Groupname:Groupname,
+            createdate:Date.now()
+
         });
+        // const newuser = await User.create({
+        //     submittedby,
+        //     Groupname,
+        //     createdate: Date.now(),
+        // });
 
         res.json({ msg: "Successful", user: newuser });
     } catch (error) {
