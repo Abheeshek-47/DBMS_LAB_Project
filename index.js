@@ -4,7 +4,11 @@ import { User } from "./db.js"; // Assuming this is an ORM model (e.g., Sequeliz
 
 const app = express();
 app.use(bodyParser.json());
-
+app.use("/",(req,res)=>{
+    res.json({
+        msg:"Deployed online Successfully"
+    })
+})
 app.post("/addnew", async (req, res) => {
     const { submittedby, Groupname } = req.body;
 
