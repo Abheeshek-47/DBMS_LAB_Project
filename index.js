@@ -118,7 +118,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addnew", async (req, res) => {
-  const { submittedby, Groupname, projectTitle, projectdescription, Submission_Date } = req.body;
+  const { Groupname, projectTitle, projectdescription, Submission_Date } = req.body;
 
   // Validate required fields
   if (!submittedby || !Groupname || !Array.isArray(Groupname) || Groupname.length === 0) {
@@ -135,7 +135,6 @@ app.post("/addnew", async (req, res) => {
   try {
     // Create the project (user) in the database
     const newuser = await User.create({
-      submittedby,
       Groupname,
       projectTitle,
       projectdescription,
