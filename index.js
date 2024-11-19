@@ -42,7 +42,7 @@ app.post("/addnew", async (req, res) => {
       createdate: new Date(), // Current timestamp
     });
 
-    res.status(201).json({ msg: "Project created successfully", user: newuser });
+    res.status(200).json({ msg: "Project created successfully", user: newuser });
   } catch (error) {
     console.error("Error creating project:", error);
     res.status(500).json({ msg: "Something went wrong", error: error.message });
