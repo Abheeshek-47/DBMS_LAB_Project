@@ -17,7 +17,7 @@ import cors from 'cors';
 
 const app = express();
 const corsOptions = {
-    origin: 'https://test.unitycircle.online',
+    origin: 'https://form.unitycircle.online',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
