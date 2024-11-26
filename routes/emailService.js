@@ -98,13 +98,12 @@ export const sendConfirmationEmail = async (to, details) => {
                         <li><strong>Batch:</strong> ${details.batch}</li>
                         <li><strong>Project Details:</strong> ${details.projectdetails}</li>
                         <li><strong>Project Description:</strong> ${details.projectdescription}</li>
-                        <li><strong>Submission Date:</strong> ${details.submissionDate}</li>
                         <li><strong>Group Members:</strong> ${details.Groupname.map(member => `${member.username} (${member.sap})`).join(', ')}</li>
                     </ul>
                     <p>We have received your form successfully and will process it shortly.</p>
                 </div>
                 <div class="footer">
-                    Made with <i class="fas fa-heart"></i> by Your Team
+                    Made with <i class="fas fa-heart"></i>
                 </div>
             </div>
         </body>
@@ -119,7 +118,6 @@ export const sendConfirmationEmail = async (to, details) => {
         - Batch: ${details.batch}
         - Project Details: ${details.projectdetails}
         - Project Description: ${details.projectdescription}
-        - Submission Date: ${details.submissionDate}
         - Group Members: ${details.Groupname.map(member => `${member.username} (${member.sap})`).join(', ')}
 
         We have received your form successfully and will process it shortly.
