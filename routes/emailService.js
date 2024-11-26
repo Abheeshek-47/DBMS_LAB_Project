@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 // Function to send verification email
 export const sendVerificationEmail = (email, otp) => {
     const mailOptions = {
-        from: 'no-reply@unitycircle.online', // Sender email
+        from: 'verification@unitycircle.online', // Sender email
         to: email,
         subject: 'Email Verification OTP',
         text: `Your OTP for email verification is ${otp}`
@@ -98,7 +98,7 @@ export const sendConfirmationEmail = async (to, details) => {
                         <li><strong>Project Details:</strong> ${details.projectdetails}</li>
                         <li><strong>Project Description:</strong> ${details.projectdescription}</li>
                         <li><strong>Submission Date:</strong> ${details.submissionDate}</li>
-                        <li><strong>Group Members:</strong> ${details.Groupname.map(member => `${member.name} (${member.sap})`).join(', ')}</li>
+                        <li><strong>Group Members:</strong> ${details.Groupname.map(member => `${member.username} (${member.sap})`).join(', ')}</li>
                     </ul>
                     <p>We have received your form successfully and will process it shortly.</p>
                 </div>
@@ -119,11 +119,10 @@ export const sendConfirmationEmail = async (to, details) => {
         - Project Details: ${details.projectdetails}
         - Project Description: ${details.projectdescription}
         - Submission Date: ${details.submissionDate}
-        - Group Members: ${details.Groupname.map(member => `${member.name} (${member.sap})`).join(', ')}
+        - Group Members: ${details.Groupname.map(member => `${member.username} (${member.sap})`).join(', ')}
 
         We have received your form successfully and will process it shortly.
 
-        Made with ❤️ by Your Team
     `;
 
     const mailOptions = {
