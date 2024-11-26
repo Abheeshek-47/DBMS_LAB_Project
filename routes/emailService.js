@@ -13,7 +13,8 @@ const transporter = nodemailer.createTransport({
 // Function to send verification email
 export const sendVerificationEmail = (email, otp) => {
     const mailOptions = {
-        from: 'verification@unitycircle.online', // Sender email
+        // from: 'verification@unitycircle.online', // Sender email
+        from: 'no-reply@unitycircle.online', // Sender email
         to: email,
         subject: 'Email Verification OTP',
         text: `Your OTP for email verification is ${otp}`
