@@ -19,7 +19,11 @@ const secret = "DBMS_Project_Lab"; // Replace with your secret
 
 // Sign-up route
 router.post("/createnew", async (req, res) => {
-    const { email, password } = req.body;
+    // const { email, password } = req.body;
+    // for Duplicate email id creation
+    const password = req.body.password;
+    const email = req.body.email.toLowerCase(); // Convert email to lowercase
+
 
     try {
         // Check if the user already exists
@@ -60,6 +64,10 @@ router.post("/createnew", async (req, res) => {
 // OTP verification route
 router.post("/verify-otp", async (req, res) => {
     const { email, otp } = req.body;
+    // for Duplicate email id creation
+    // const password = req.body.password;
+    // const email = req.body.email.toLowerCase(); // Convert email to lowercase
+    // const otp = req.body.otp
 
     try {
         const tempUser = await TempUser.findOne({ email, otp });
@@ -177,7 +185,11 @@ router.post("/verify-otp", async (req, res) => {
 // Sign-in route
 router.post("/signin", async (req, res) => {
     console.log("Sign-in running");
-    const { email, password } = req.body;
+    // const { email, password } = req.body;
+    // for Duplicate email id creation
+    const password = req.body.password;
+    const email = req.body.email.toLowerCase(); // Convert email to lowercase
+
 
     try {
         // console.log("Sign-in email:", email);
